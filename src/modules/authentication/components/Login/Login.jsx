@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
     const classes = useStyles();
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     return (
         <Container maxWidth='xs'>
             <div className={classes.paper}>
@@ -25,6 +28,7 @@ const Login = () => {
                         fullWidth
                         margin="normal"
                         required
+                        onInput={event => setEmail(event.target.value)}
                     ></TextField>
                     <TextField
                         id="password"
@@ -34,6 +38,7 @@ const Login = () => {
                         fullWidth
                         margin="normal"
                         required
+                        onInput={event => setPassword(event.target.value)}
                     ></TextField>
                     <Button
                         fullWidth
